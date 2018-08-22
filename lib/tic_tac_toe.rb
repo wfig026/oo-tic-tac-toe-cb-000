@@ -72,7 +72,7 @@ class TicTacToe
     turn_count % 2 == 0 ? "X" : "O"
   end
 
-  #won
+  #won?
   def won?
     WIN_COMBINATIONS.detect do |win_combination|
       if
