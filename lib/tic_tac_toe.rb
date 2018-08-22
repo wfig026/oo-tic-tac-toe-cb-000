@@ -62,7 +62,7 @@ class TicTacToe
     display_board
   end
 
-  #won?
+  #turn_count
   def turn_count
     @board.count{|token| token == "X" || token == "O"}
   end
@@ -70,6 +70,25 @@ class TicTacToe
   #current_player
   def current_player
     turn_count % 2 == 0 ? "X" : "O"
+  end
+
+  #won
+  def won?
+    WIN_COMBINATIONS.detect do |win_combination|
+      if
+        win_combination.all? do |win_index|
+          @board[win_index]=="X"
+        end
+        true
+      elsif
+        win_combination.all? do |win_index|
+          @board[win_index]=="O"
+        end
+        true
+      else
+        nil
+      end
+    end
   end
 
   #full
